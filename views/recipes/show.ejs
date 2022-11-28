@@ -1,11 +1,51 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>TItle: </div>
-    <div><%= recipe.title %></div>
-    <div>Prep Time: </div>
-    <div><%= recipe.prepTime %></div>
-  </section>
-  <br><h2>Ingredients</h2>
+  <div>Title: </div>
+  <div><%= recipe.title %></div>
+  <div>Prep Time: </div>
+  <div><%= recipe.prepTime %></div>
+</section>
+<br><h2>Ingredients</h2>
+<form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
+  <textarea name="items"></textarea>
+  <input type="submit" value="Add">
+</form>
+
+<% if (recipe.ingredients.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <!-- <th></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <% recipe.ingredients.forEach(function(i) { %>
+          <tr>
+            <td><%= i.items %></td>
+            <td>
+              <a href="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>">
+                <button>
+                  ✎
+                </button>
+              </a>
+            </td>
+            <td>
+              <form action="" method="">
+                <button>
+                  ␡
+                </button>
+              </form> 
+            </td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Items Yet</h5>
+  <% } %>
 
 <%- include('../partials/footer') %>

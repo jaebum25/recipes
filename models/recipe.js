@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 var ingredientSchema = new mongoose.Schema({
-    text: String
+    items: String
 }, {
     timestamps: true
 });
@@ -10,7 +10,7 @@ var ingredientSchema = new mongoose.Schema({
 const recipeSchema = new Schema({
     title: String,
     prepTime: Number,
-    ingredeints: [ingredientSchema],
+    ingredients: [ingredientSchema],
     googleId: String
 }, {
     timestamps: true
