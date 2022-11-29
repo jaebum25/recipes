@@ -40,12 +40,63 @@
         </tr>
       </tbody>
     </table>
-  <% } else { %>
+<% } else { %>
     <h5>No Items Yet</h5>
-  <% } %>
-  <form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
+<% } %>
+
+<form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
     <textarea name="items"></textarea>
     <input type="submit" value="Add">
-  </form>
+</form>
+
+<% if (recipe.reviews.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %>
+        <% recipe.reviews.forEach(function(c) { %>
+          <% total += c.rating %>
+          <tr>
+            <td><%= c.createdAt.toLocaleDateString() %></td>
+            <td><%= c.content %></td>
+            <td><%= c.rating %></td>
+            <td>
+              <a href="/recipes/<%= recipe.id %>/reviews/<%= c.id %>">
+                <button>
+                  ✎
+                </button>
+              </a>
+            </td>
+            <td>
+              <form action="/recipes/<%= recipe.id %>/reviews/<%= c.id %>?_method=DELETE" method="POST">
+                <button>
+                  ␡
+                </button>
+              </form> 
+            </td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="2"></td>
+          <td><strong><%= (total / recipe.reviews.length).toFixed(1) %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+<% } else { %>
+    <h5>No Reviews Yet</h5>
+<% } %>
+
+<form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Revew">
+</form>
 
 <%- include('../partials/footer') %>

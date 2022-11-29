@@ -22,7 +22,7 @@
         <% recipes.forEach(function(r) { %>
         <tr>
             <td><%= r.title %></td>
-            <td><%= r.prepTime %></td>
+            <td><%= r.prepTime %>min</td>
             <td><a href="/recipes/<%= r._id %>">INGREDIENTS</a></td>  
             <td>
                 <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
