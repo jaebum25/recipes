@@ -24,16 +24,17 @@
           <tr>
             <td><%= i.items %></td>
             <td>
-              <a href="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>">
+              <form action="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>?_method=PUT" method="POST">
+                <textarea name="items" value=""><%= i.items %></textarea>
                 <button>
                   ✎
                 </button>
-              </a>
+            </form>
             </td>
             <td>
-              <form action="" method="">
+              <form action="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>?_method=DELETE" method="POST">
                 <button>
-                  ␡
+                  DEL
                 </button>
               </form> 
             </td>
