@@ -2,6 +2,7 @@ const Recipe = require('../models/recipe')
 
 module.exports = {
     create,
+    delete: deleteReview
 
 }
 
@@ -12,4 +13,12 @@ function create(req, res) {
             res.redirect(`/recipes/${recipe._id}`);
         });
     });
+}
+
+function deleteReview(req, res) {
+    Recipe.findById(req.params.rId, function(err, recipe) {
+      recipe.reviews.id(req.params.cId).remove()
+      recipe.save()
+      res.redirect(`/recipes/${req.params.rId}`)
+    })
 }
