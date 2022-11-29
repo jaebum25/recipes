@@ -96,7 +96,15 @@
 
 <form id="add-review-form" method="POST" action="/recipes/<%= recipe._id %>/reviews">
     <textarea name="content"></textarea>
-    <input type="submit" value="Add Revew">
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <input type="submit" value="Add Review">
 </form>
 
 <%- include('../partials/footer') %>
