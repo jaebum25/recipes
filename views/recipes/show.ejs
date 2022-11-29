@@ -7,10 +7,6 @@
   <div><%= recipe.prepTime %></div>
 </section>
 <br><h2>Ingredients</h2>
-<form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
-  <textarea name="items"></textarea>
-  <input type="submit" value="Add">
-</form>
 
 <% if (recipe.ingredients.length) { %>
     <table>
@@ -22,7 +18,6 @@
       <tbody>
         <% recipe.ingredients.forEach(function(i) { %>
           <tr>
-            <td><%= i.items %></td>
             <td>
               <form action="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>?_method=PUT" method="POST">
                 <textarea name="items" value=""><%= i.items %></textarea>
@@ -48,5 +43,9 @@
   <% } else { %>
     <h5>No Items Yet</h5>
   <% } %>
+  <form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
+    <textarea name="items"></textarea>
+    <input type="submit" value="Add">
+  </form>
 
 <%- include('../partials/footer') %>
