@@ -1,21 +1,12 @@
 <%- include('../partials/header') %>
 
-<ul>
-    <li>
-        <% if (user) { %>
-            <a href="/logout">Logout</a>
-        <% } else { %>
-            <a href="/auth/google">Login with Google</a>
-        <% } %>
-    </li>
-</ul>
-
 <table id="list">
     <thead>
         <tr>
         <th>Title</th>
         <th>Prep Time:</th>
-        <th></th>
+        <th>Rating</th>
+        <th>Ingredients</th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +14,8 @@
         <tr>
             <td><%= r.title %></td>
             <td><%= r.prepTime %>min</td>
+            <td>dummy</td>
+            <!-- <td>how do i source from show.ejs?</td> -->
             <td><a href="/recipes/<%= r._id %>">INGREDIENTS</a></td>  
             <td>
                 <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
@@ -35,5 +28,7 @@
         <% }); %>
     </tbody>
 </table>
+
+
 
 <%- include('../partials/footer') %>

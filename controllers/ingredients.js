@@ -4,6 +4,7 @@ module.exports = {
     create,
     delete: deleteItem,
     update,
+    edit,
 
 }
 
@@ -33,3 +34,15 @@ function update(req, res) {
     })
 }
 
+function edit(req, res) {
+    Recipe.findById(req.params.rId, function(err, recipe) {
+        let ingredient = recipe.ingredients.id(req.params.iId)
+        res.render('ingredients/edit', { 
+            title: 'Edit an Item', 
+            recipe, 
+            ingredient, 
+            user: req.user,
+            name: req.query.name, 
+        })
+    })
+}

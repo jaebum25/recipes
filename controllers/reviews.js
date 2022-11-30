@@ -2,8 +2,7 @@ const Recipe = require('../models/recipe')
 
 module.exports = {
     create,
-    delete: deleteReview
-
+    delete: deleteReview,
 }
 
 function create(req, res) {
