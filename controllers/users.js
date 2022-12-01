@@ -3,7 +3,10 @@ const Recipe = require('../models/recipe')
 
 module.exports = {
     index,
-
+    new: newRecipe,
+    create,
+    show,
+    delete: deleteRecipe,
 }
 
 function index(req, res) {
@@ -28,7 +31,17 @@ function index(req, res) {
     })
 }
 
+function create(req, res) {
+    req.body.user = req.user.id
+    const recipe = new Recipe(req.body);
+    recipe.save(function(err) {
+        if (err) return res.render('recipes/new');
+        res.redirect('/recipes');
+    });
+}
+
 function newRecipe(req, res) {
+    req.body.user = req.user.id
     res.render('recipes/new', { 
         title: 'Add Recipe',
         user: req.user,
@@ -37,11 +50,25 @@ function newRecipe(req, res) {
     
 }
 
-function create(req, res) {
+function show(req, res) {
     req.body.user = req.user.id
-    const recipe = new Recipe(req.body);
-    recipe.save(function(err) {
-        if (err) return res.render('recipes/new');
-        res.redirect('/recipes');
-    });
+    Recipe.findById(req.params.id, function(err, recipe) {
+        res.render('recipes/show', { 
+            title: recipe.title, 
+            recipe,
+            user: req.user,
+            name: req.query.name, 
+        })
+    })
+}
+
+function deleteRecipe(req, res) {
+    Recipe.findById(req.params.rId, function(err, recipe) {
+    //   if (recipe.user == req.user.id) {
+          recipe.remove(req.params.rId)
+          res.redirect('/recipes')
+        //   console.log(recipe.user)
+        //   console.log(req.user.id)
+    //   }
+    })
 }

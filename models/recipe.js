@@ -18,11 +18,10 @@ const recipeSchema = new Schema({
     title: String,
     prepTime: Number,
     ingredients: [ingredientSchema],
-    // put this into user model googleId: String,
     reviews: [reviewSchema],
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     },
 }, {
     timestamps: true

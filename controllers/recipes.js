@@ -1,4 +1,4 @@
-
+const User = require('../models/user');
 const Recipe = require('../models/recipe')
 
 module.exports = {
@@ -21,7 +21,7 @@ function index(req, res) {
             })
         avgRatings.push(total / recipe.reviews.length)
         })
-        console.log(recipes)
+        // console.log(recipes)
         res.render('recipes/index', { 
             title: 'All Recipes', 
             recipes,
@@ -42,12 +42,11 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-    console.log(req.body)
-    // req.body.user = req.user.id
+    req.body.user = req.user
     const recipe = new Recipe(req.body);
     recipe.save(function(err) {
         if (err) return res.render('recipes/new');
-        console.log(recipe);
+        console.log(recipe)
         res.redirect('/recipes');
     });
 }
@@ -64,15 +63,17 @@ function show(req, res) {
 }
 
 function deleteRecipe(req, res) {
-    Recipe.findById(req.params.rId, function(err, recipe) {
-    //   if (recipe.user == req.user.id) {
+    Recipe.findById(req.params.rId, function(err, recipe, ) {
+      if (recipe.user == req.user) {
           recipe.remove(req.params.rId)
           res.redirect('/recipes')
-    //   }
+          console.log(recipe)
+        //   console.log(req.user.id)
+      }
     })
 }
 
 // only allow delete function inside of an if
     // if (recipe.user == req.user.id)
         // then recipe.remove() - line 68
-        //
+        // if (recipe.user == req.user) this one letes me delete when logged out
