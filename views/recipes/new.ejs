@@ -2,10 +2,10 @@
 
 <form id="new-form" action="/recipes" method="POST">
     <label>Title:</label>
-    <input type="text" name="title">
+    <input type="text" name="title" required="true" placeholder="Type here">
     <label>Prep Time:</label>
-    <input type="text" name="prepTime">
-  </label><br>
+    <input class="browser-default" type="number" min="0" max="60" required="true" name="prepTime">mins
+  </label><br><br>
   <input type="submit" value="Add Recipe">
 </form>
 

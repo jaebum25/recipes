@@ -1,4 +1,3 @@
-const User = require('../models/user');
 const Recipe = require('../models/recipe')
 
 module.exports = {
@@ -33,12 +32,15 @@ function index(req, res) {
 }
 
 function newRecipe(req, res) {
+    if (req.user) {
     res.render('recipes/new', { 
         title: 'Add Recipe',
         user: req.user,
         name: req.query.name,
     });
-    
+    } else {
+        res.redirect('/recipes')
+    }
 }
 
 function create(req, res) {
@@ -64,12 +66,12 @@ function show(req, res) {
 
 function deleteRecipe(req, res) {
     Recipe.findById(req.params.rId, function(err, recipe, ) {
-      if (recipe.user == req.user) {
+    //   if (recipe.user == req.user) {
           recipe.remove(req.params.rId)
           res.redirect('/recipes')
           console.log(recipe)
         //   console.log(req.user.id)
-      }
+    //   }
     })
 }
 

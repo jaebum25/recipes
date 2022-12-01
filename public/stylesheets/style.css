@@ -1,8 +1,26 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font: 18px 'Nanum Brush Script', cursive;
 }
 
 a {
   color: #00B7FF;
+}
+
+table {
+  font-size: 24px
+}
+
+#home {
+  background-color: white;
+}
+
+#navwrapper {
+  background-color: red;
+  font-size: 20px;
+}
+
+.hello {
+  font-size: 40px;
 }

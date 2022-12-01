@@ -19,11 +19,15 @@ function create(req, res) {
 }
 
 function deleteItem(req, res) {
-    Recipe.findById(req.params.rId, function(err, recipe) {
-      recipe.ingredients.id(req.params.iId).remove()
-      recipe.save()
-      res.redirect(`/recipes/${req.params.rId}`)
-    })
+    if (req.user) {
+        Recipe.findById(req.params.rId, function(err, recipe) {
+        recipe.ingredients.id(req.params.iId).remove()
+        recipe.save()
+        res.redirect(`/recipes/${req.params.rId}`)
+        })
+    } else {
+        res.redirect(`/recipes/${req.params.rId}`)
+    }
 }
 
 function update(req, res) {
@@ -35,14 +39,18 @@ function update(req, res) {
 }
 
 function edit(req, res) {
-    Recipe.findById(req.params.rId, function(err, recipe) {
-        let ingredient = recipe.ingredients.id(req.params.iId)
-        res.render('ingredients/edit', { 
-            title: 'Edit an Item', 
-            recipe, 
-            ingredient, 
-            user: req.user,
-            name: req.query.name, 
+    if (req.user) {
+        Recipe.findById(req.params.rId, function(err, recipe) {
+            let ingredient = recipe.ingredients.id(req.params.iId)
+            res.render('ingredients/edit', { 
+                title: 'Edit an Item', 
+                recipe, 
+                ingredient, 
+                user: req.user,
+                name: req.query.name, 
+            })
         })
-    })
+    } else {
+        res.redirect(`/recipes/${req.params.rId}`)
+    }
 }

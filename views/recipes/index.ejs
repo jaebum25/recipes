@@ -6,7 +6,6 @@
         <th>Title</th>
         <th>Prep Time:</th>
         <th>Rating</th>
-        <th>Ingredients</th>
         </tr>
     </thead>
     <tbody>
@@ -14,10 +13,10 @@
         <tr>
             <td><%= r.title %></td>
             <td><%= r.prepTime %>min</td>
-            <td><%= avgRatings[index] ? avgRatings[index] : 'No Ratings' %></td>
+            <td><%= avgRatings[index] ? avgRatings[index].toFixed(1) : 'No Rating' %></td>
             <td><a href="/recipes/<%= r._id %>">INGREDIENTS</a></td>  
             <td>
-                <% if(r.user == user) { %>
+                <% if(user && r.user == user.id) { %>
                 <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
                     <button>
                         <i class="material-icons">delete</i>

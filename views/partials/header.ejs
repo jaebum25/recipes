@@ -4,20 +4,20 @@
       <title><%= title %></title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/">home</a></li>
-                <li><a href="/recipes/new">ADD RECIPE</a></li>
+        <div class="nav-wrapper" id="navwrapper">
+            <a href="/" class="brand-logo">Home</a>
+            <ul class="right hide-on-med-and-down">
                 <li><a href="/recipes">RECIPE LIST</a></li>
                 <li>
                     <% if (user) { %>
                         <a href="/logout">Logout</a>
+                        <li><a class="hello" href="/recipes/new">ADD RECIPE</a></li>
                     <% } else { %>
                         <a href="/auth/google">Login with Google</a>
                     <% } %>
