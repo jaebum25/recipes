@@ -10,6 +10,7 @@ module.exports = {
 
 //adds new ingredient
 function create(req, res) {
+    req.body.user = req.user
     Recipe.findById(req.params.id, function(err, recipe) {
         if (req.user) {
             recipe.ingredients.push(req.body);

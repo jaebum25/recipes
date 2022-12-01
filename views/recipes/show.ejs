@@ -17,10 +17,11 @@
         <% recipe.ingredients.forEach(function(i) { %>
           <tr>
             <td><%= i.items %>
+                <% if(user && i.user == user.id) { %>
                 <a href="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>">
                 <button>
                     <i class="material-icons">edit</i>
-                </button>
+                </button>                
                 </a>
             </form>
             </td>
@@ -30,22 +31,27 @@
                     <i class="material-icons">delete</i>
                 </button>
               </form> 
+              <% } %>
             </td>
-          </tr>
+        </tr>
         <% }); %>
         <tr>
-          <td colspan="2"></td>
+            <td colspan="2"></td>
         </tr>
-      </tbody>
-    </table>
+    </tbody>
+</table>
 <% } else { %>
     <h5>No Items Yet</h5>
 <% } %>
 
-<form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
-    <textarea name="items" placeholder="Add new ingredient" required="true"></textarea>
-    <input type="submit" value="Add">
-</form>
+<% recipe.ingredients.forEach(function(i) { %>
+    <% if(user && i.user == user.id) { %>
+    <form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
+        <textarea name="items" placeholder="Add new ingredient" required="true"></textarea>
+        <input type="submit" value="Add">
+    </form>
+    <% } %>
+    <% }); %>
 
 <% if (recipe.reviews.length) { %>
     <table>
