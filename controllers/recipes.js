@@ -52,17 +52,28 @@ function create(req, res) {
         res.redirect('/recipes');
     });
 }
-
-function show(req, res) {
-    Recipe.findById(req.params.id, function(err, recipe) {
-        res.render('recipes/show', { 
-            title: recipe.title, 
-            recipe,
-            user: req.user,
-            name: req.query.name, 
-        })
+async function show(req, res) {
+    let recipe = await Recipe.findById(req.params.id).populate({
+        path: 'reviews',
+        populate: { path: 'user', model: 'User'}
+    })
+    res.render('recipes/show', { 
+        title: recipe.title, 
+        recipe,
+        user: req.user,
+        name: req.query.name, 
     })
 }
+// function show(req, res) {
+//     Recipe.findById(req.params.id, function(err, recipe) {
+//         res.render('recipes/show', { 
+//             title: recipe.title, 
+//             recipe,
+//             user: req.user,
+//             name: req.query.name, 
+//         })
+//     })
+// }
 
 function deleteRecipe(req, res) {
     Recipe.findById(req.params.rId, function(err, recipe, ) {

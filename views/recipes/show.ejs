@@ -2,7 +2,7 @@
 
 <section id="show-page">
   <div>Prep Time: </div>
-  <div><%= recipe.prepTime %>mins</div>
+  <div><%= recipe.prepTime %>min</div>
 </section>
 
 <h4>Ingredients:</h2>
@@ -44,12 +44,12 @@
     <h5>No Items Yet</h5>
 <% } %>
 
-
+<% if(user) { %>
     <form id="add-ingredient-form" method="POST" action="/recipes/<%= recipe._id %>/ingredients">
         <textarea name="items" placeholder="Add new ingredient" required="true"></textarea>
         <input type="submit" value="Add">
     </form>
-
+<% } %>
 
 <h2>Reviews</h2>
 <% if (recipe.reviews.length) { %>
@@ -68,7 +68,7 @@
           <% total += c.rating %>
           <tr>
             <td><%= c.createdAt.toLocaleDateString() %></td>
-            <td><%= c.user %></td>
+            <td><%= c.user.name %></td>
             <td><%= c.content %></td>
             <td><%= c.rating %></td>
             <td>
