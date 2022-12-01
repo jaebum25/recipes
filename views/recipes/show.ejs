@@ -5,18 +5,7 @@
   <div><%= recipe.prepTime %>mins</div>
 </section>
 
-<ul class="collection with-header">
-    <li class="collection-header"><h4>Ingredients</h4></li>
-    <% if (recipe.ingredients.length) { %>
-        <% recipe.ingredients.forEach(function(i) { %>
-            <li class="collection-item"><div><%= i.items %><a href="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>" class="secondary-content"><i class="material-icons">edit</i><i class="material-icons">delete</i></a></div></li>
-        <% }); %>
-    <% } else { %>
-        <h5>No Items Yet</h5>
-    <% } %>
-</ul>
-
-
+<h4>Ingredients:</h2>
 <% if (recipe.ingredients.length) { %>
     <table>
       <thead>
@@ -27,18 +16,18 @@
       <tbody>
         <% recipe.ingredients.forEach(function(i) { %>
           <tr>
-            <td>
-              <form action="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>?_method=PUT" method="POST">
-                <textarea name="items" value=""><%= i.items %></textarea>
+            <td><%= i.items %>
+                <a href="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>">
                 <button>
-                  ✎
+                    <i class="material-icons">edit</i>
                 </button>
+                </a>
             </form>
             </td>
             <td>
               <form action="/recipes/<%= recipe.id %>/ingredients/<%= i.id %>?_method=DELETE" method="POST">
                 <button>
-                  DEL
+                    <i class="material-icons">delete</i>
                 </button>
               </form> 
             </td>
@@ -65,7 +54,6 @@
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
-          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -79,7 +67,7 @@
             <td>
               <form action="/recipes/<%= recipe.id %>/reviews/<%= c.id %>?_method=DELETE" method="POST">
                 <button>
-                  ␡
+                    <i class="material-icons">delete</i>
                 </button>
               </form> 
             </td>

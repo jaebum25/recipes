@@ -10,19 +10,20 @@
         </tr>
     </thead>
     <tbody>
-        <% recipes.forEach(function(r) { %>
+        <% recipes.forEach(function(r, index) { %>
         <tr>
             <td><%= r.title %></td>
             <td><%= r.prepTime %>min</td>
-            <td>dummy</td>
-            <!-- <td>how do i source from show.ejs?</td> -->
+            <td><%= avgRatings[index] ? avgRatings[index] : 'No Ratings' %></td>
             <td><a href="/recipes/<%= r._id %>">INGREDIENTS</a></td>  
             <td>
+                <% if(r.user == user) { %>
                 <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST">
                     <button>
-                        DEL
+                        <i class="material-icons">delete</i>
                     </button>
                 </form>
+                <% } %>
             </td> 
         </tr>
         <% }); %>
