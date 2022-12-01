@@ -65,12 +65,13 @@ function show(req, res) {
 
 function deleteRecipe(req, res) {
     Recipe.findById(req.params.rId, function(err, recipe) {
-      recipe.remove(req.params.rId)
-      res.redirect('/recipes')
+    //   if (recipe.user == req.user.id) {
+          recipe.remove(req.params.rId)
+          res.redirect('/recipes')
+    //   }
     })
 }
 
-// do the math here for the ratings average
 // only allow delete function inside of an if
     // if (recipe.user == req.user.id)
         // then recipe.remove() - line 68

@@ -1,9 +1,7 @@
 var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-// The factSchema is used to embedded docs in as student doc.
-// There is no model and no 'facts' collection
-
-var studentSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
   name: String,
   email: String,
   googleId: String

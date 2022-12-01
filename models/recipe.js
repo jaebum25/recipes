@@ -18,10 +18,18 @@ const recipeSchema = new Schema({
     title: String,
     prepTime: Number,
     ingredients: [ingredientSchema],
-    googleId: String,
+    // put this into user model googleId: String,
     reviews: [reviewSchema],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 }, {
     timestamps: true
 });
 
 module.exports = mongoose.model('Recipe', recipeSchema)
+
+// recipe model needs a user key
+// tickets schema flight key
+// add to recipe schema
