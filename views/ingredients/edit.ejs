@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+
 <form action="/recipes/<%= recipe.id %>/ingredients/<%= ingredient.id %>?_method=PUT" method="POST">
   <label>Item:</label>
   <textarea name="items" value=""><%= ingredient.items %></textarea>
