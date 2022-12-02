@@ -40,10 +40,10 @@ https://trello.com/b/PbuJ7AuQ/project-2
 ### Initial Wire Frame:
 <img src="public/images/Screen Shot 2022-11-27 at 8.03.31 PM.png" width="500">
 
-### ERD
+### Initial ERD (lol - clown emoji)
 <img src="public/images/Screen Shot 2022-11-27 at 8.16.07 PM.png" width="500">
 
-Next Steps:
+## Next Steps:
 Icebox from Trello (link above):
 The goal is really to nail the best recipe. until then next steps would be user experience i.e. background music for the home page, "add image" section, and hiring a designer to beautify the webpage. After the perfect recipe is crafted, we can start to explore new pages. Starting with the next obsession (viet iced coffee) and a 18+ page for alcoholic drinks possibly. I don't want to lose focus so I want to make sure for now we are hyper obsessed with 1 drink.
 
