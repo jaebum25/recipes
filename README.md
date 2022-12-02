@@ -38,10 +38,10 @@ In dedication to my search for the perfect recipe, I hope you are able to explor
 https://trello.com/b/PbuJ7AuQ/project-2
 
 ### Initial Wire Frame:
-![Wire Fram Link](public/images/Screen Shot 2022-11-27 at 8.03.31 PM.png)
+<img src="public/images/Screen Shot 2022-11-27 at 8.03.31 PM.png" width="500">
 
 ### ERD
-![ERD linl](public/images/Screen Shot 2022-11-27 at 8.16.07 PM.png)
+<img src="public/images/Screen Shot 2022-11-27 at 8.16.07 PM.png" width="500">
 
 Next Steps:
 Icebox from Trello (link above):
