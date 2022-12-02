@@ -17,8 +17,8 @@ In dedication to my search for the perfect recipe, I hope you are able to explor
 
 ### Theme: Simple
 
-#### Home Page
-<img src="../recipes/public/images/HKLTR home.png" width="1000">
+#### Home Page 
+<img src="public/images/HKLTR home.png" width="1000">
 
 #### Index Page
 <img src="Screen Shot 2022-11-11 at 9.00.40 AM.png" width="1000">
