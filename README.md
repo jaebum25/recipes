@@ -21,28 +21,27 @@ In dedication to my search for the perfect recipe, I hope you are able to explor
 <img src="public/images/HKLTR home.png" width="1000">
 
 #### Index Page
-<img src="Screen Shot 2022-11-11 at 9.00.40 AM.png" width="1000">
+<img src="public/images/HKLTR index.png" width="1000">
 
 #### Add Recipe Page
-<img src="Screen Shot 2022-11-11 at 8.53.39 AM.png" width="1000">
+<img src="public/images/HKLTR add recipe.png" width="1000">
 
 #### Details Page
-<img src="Screen Shot 2022-11-11 at 8.53.18 AM.png" width="1000">
+<img src="public/images/HKLTR details.png" width="1000">
 
 #### Edit Page
-<img src="Screen Shot 2022-11-11 at 8.53.18 AM.png" width="1000">
+<img src="public/images/HKLTR edit.png" width="1000">
 
-# recipes
-2nd project
+## Pre-work
 
-#Trello link:
+### Trello link:
 https://trello.com/b/PbuJ7AuQ/project-2
 
-#Initial Wire Frame:
-![alt text](public/images/Screen Shot 2022-11-27 at 8.03.31 PM.png)
+### Initial Wire Frame:
+![Wire Fram Link](public/images/Screen Shot 2022-11-27 at 8.03.31 PM.png)
 
-#
-![alt text](https://github.com/jaebum25/recipes/blob/main/Screen%20Shot%202022-11-27%20at%208.16.07%20PM.png)
+### ERD
+![ERD linl](public/images/Screen Shot 2022-11-27 at 8.16.07 PM.png)
 
 Next Steps:
 Icebox from Trello (link above):
